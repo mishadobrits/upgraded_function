@@ -22,12 +22,6 @@ class LazyFunction:
             return self.func_(*args)
 
 
-
-#    "__getattr__",
-#    "__setattr__",
-#    "__delattr__",
-
-
 methods = [
     "__pos__",
     "__neg__",
@@ -123,7 +117,6 @@ def make_method(method: Union[str, Callable]):
     def _method(*args):
         def method_func(*func_args):
             nonlocal args
-            # print(*func_args)
             args = list(args)
             for i, elem in enumerate(args):
                 if type(elem) == LazyFunction:
